@@ -8,4 +8,17 @@ export default defineConfig({
     port: 5173, 
   },
   plugins: [react()],
+  optimizeDeps: {
+    exclude: ['@coinbase/wallet-sdk', 'cbw-sdk']
+  },
+  build: {
+    rollupOptions: {
+      external: (id) => {
+        if (id.includes('@coinbase/wallet-sdk') || id.includes('cbw-sdk')) {
+          return false;
+        }
+        return false;
+      }
+    }
+  }
 })
