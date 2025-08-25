@@ -1,0 +1,318 @@
+/* Footer.css - Responsive Version */
+
+/* Base Footer Styles */
+.footer {
+    position: relative;
+    z-index: 1;
+    border: none;
+    border-radius: 0;
+    padding: 1.5rem 1rem !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Footer Links Container */
+.footer-links {
+    width: 100%;
+    padding: 0.5rem 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 10px;
+}
+
+.link-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.link-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.link-icon {
+    margin-right: 0.5rem;
+    color: #ffd700;
+    flex-shrink: 0;
+}
+
+.link-text {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.link-text:hover {
+    color: #ffd700;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Copyright Text */
+.copyright-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 15px auto;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 15px 15px;
+    word-break: break-word;
+}
+
+.highlight {
+    color: #ffd700;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.highlight:hover {
+    text-decoration: underline;
+}
+
+/* Social Icons - Mobile */
+.social-icons-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 50px !important;
+    margin: 0 auto;
+    padding: 8px 15px !important;
+    max-width: fit-content;
+}
+
+.social-icon {
+    font-size: 1.3rem;
+    color: white;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.3rem;
+    margin: 0 5px;
+    flex-shrink: 0;
+}
+
+.twitter-icon:hover {
+    color: #1da1f2;
+    transform: translateY(-3px);
+}
+
+.whatsapp-icon:hover {
+    color: #25d366;
+    transform: translateY(-3px);
+}
+
+.telegram-icon:hover {
+    color: #0088cc;
+    transform: translateY(-3px);
+}
+
+/* Social Icons - Desktop */
+.social-icons-bottom-right {
+    position: absolute;
+    right: 100px;
+    bottom: 20px;
+}
+
+/* Chatbot Styles */
+.ai-chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.ai-assistant-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1da1f2 0%, #0d8ecf 100%);
+    border: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.ai-assistant-btn:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    max-width: calc(100vw - 40px);
+    height: 500px;
+    max-height: 70vh;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Predefined Questions */
+.predefined-questions-container {
+    padding: 10px;
+    background: rgba(1, 8, 22, 0.3);
+    border-radius: 15px;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.predefined-questions-container > div {
+    color: #077deb;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(232, 236, 240, 0.3);
+}
+
+.predefined-question {
+    background: linear-gradient(135deg, rgba(246, 247, 248, 0.15) 0%, rgba(13, 142, 207, 0.2) 100%);
+    color: #f6f8fa !important;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(244, 245, 245, 0.3);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: subtleGlow 3s infinite ease-in-out;
+    display: inline-block;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Animations */
+@keyframes subtleGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(29, 161, 242, 0.2); }
+    50% { box-shadow: 0 0 10px rgba(246, 247, 248, 0.4); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .footer-links {
+        gap: 5px;
+    }
+    
+    .link-item {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem !important;
+    }
+    
+    .separator {
+        display: none;
+    }
+    
+    .social-icons-container {
+        padding: 6px 10px !important;
+    }
+    
+    .social-icon {
+        font-size: 1.1rem !important;
+        padding: 0.2rem !important;
+        margin: 0 3px;
+    }
+    
+    .copyright-text {
+        font-size: 0.75rem;
+        padding-bottom: 15px !important;
+    }
+    
+    .ai-assistant-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .chatbot-window {
+        bottom: 80px;
+        right: 15px;
+        height: 400px;
+    }
+    
+    .predefined-question {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        margin: 4px;
+    }
+    
+    .predefined-questions-container > div {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .footer {
+        padding: 1.25rem 1rem !important;
+    }
+    
+    .footer-links {
+        gap: 8px;
+    }
+    
+    .link-item {
+        font-size: 0.8rem !important;
+    }
+    
+    .social-icon {
+        font-size: 1.2rem !important;
+    }
+    
+    .ai-assistant-btn {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .chatbot-window {
+        width: 320px;
+        height: 450px;
+    }
+}
+
+@media (min-width: 769px) {
+    .social-icons-bottom-right {
+        display: flex !important;
+    }
+    
+    .copyright-text {
+        padding-bottom: 0 !important;
+    }
+}

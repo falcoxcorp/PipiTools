@@ -1,0 +1,13 @@
+.form-check-input:checked {
+    background-color: #0d8ecf;
+    border-color: #0d8ecf;
+  }
+  
+  .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 142, 207, 0.25);
+  }
+  
+  .form-check-label {
+    margin-left: 8px;
+    cursor: pointer;
+  }

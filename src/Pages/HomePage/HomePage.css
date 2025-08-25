@@ -1,0 +1,790 @@
+/* HomePage.css - Versión actualizada con 50px padding inferior */
+.homepage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 70px; /* 20px arriba/lados + 50px extra abajo = 70px */
+  min-height: calc(100vh - 140px); /* Ajuste para mantener el footer */
+}
+
+/* Loading Styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #010a03;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-container {
+  color: #010113;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+/* Launchpads Section */
+.launchpads-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 50px;
+  overflow: hidden;
+  padding-bottom: 20px; /* Espacio adicional interno */
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #050000;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.section-title span {
+  color: #0d6faf;
+}
+
+.launchpads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  align-items: stretch;
+}
+
+/* [Todos tus estilos originales de cards, animaciones y efectos se mantienen igual...] */
+
+/* Feature Sections */
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+/* Partners Section */
+.partners-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 50px;
+  overflow: hidden;
+  padding-bottom: 30px; /* Espacio adicional */
+}
+
+/* Footer Space */
+.footer-space {
+  height: 50px;
+  width: 100%;
+}
+
+/* Responsive Styles - Ajustados para el nuevo padding */
+@media (max-width: 1200px) {
+  .homepage-container {
+    padding: 20px 20px 70px;
+  }
+}
+
+@media (max-width: 992px) {
+  .feature-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-container {
+    padding: 15px 15px 65px;
+  }
+  
+  .launchpads-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage-container {
+    padding: 15px 15px 65px;
+  }
+  
+  .launchpads-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-container {
+    padding: 15px 15px 65px;
+  }
+  
+  .feature-card,
+  .partners-card {
+    margin-bottom: 40px;
+  }
+}
+
+/* Launchpad Card Styles */
+.launchpad-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: rgba(42, 172, 16, 0.03);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.launchpad-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Efectos especiales para tarjetas activas */
+.launchpad-card.live {
+  background: linear-gradient(135deg, rgba(11, 209, 21, 0.1), rgba(14, 34, 150, 0.05));
+  border-top: 4px solid #6bdb0e;
+  position: relative;
+  overflow: visible;
+  animation: liveGlow 2s infinite alternate;
+}
+
+@keyframes liveGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(100, 200, 255, 0.6);
+  }
+}
+
+.launchpad-card.live::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, rgba(100, 200, 255, 0.2), transparent);
+  z-index: -1;
+  opacity: 0;
+  animation: wavePulse 3s infinite;
+}
+
+.launchpad-card.live::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 24px;
+  background: linear-gradient(45deg, transparent, rgba(100, 200, 255, 0.2));
+  z-index: -2;
+  opacity: 0;
+  animation: wavePulse 3s infinite 1s;
+}
+
+@keyframes wavePulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+}
+
+.launchpad-card.live:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(100, 200, 255, 0.4);
+}
+
+.launchpad-card.live:hover::before,
+.launchpad-card.live:hover::after {
+  animation: wavePulse 1.5s infinite;
+}
+
+.launchpad-card.ended {
+  background: linear-gradient(135deg, rgba(3, 27, 80, 0.1), rgba(152, 176, 199, 0.05));
+  border-top: 4px solid #090de2;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Logo Styles */
+.logo-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  position: relative;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, rgba(4, 97, 218, 0.2), transparent);
+  box-shadow: 0 4px 15px rgba(10, 58, 190, 0.1);
+}
+
+.launchpad-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid rgba(10, 14, 204, 0.2);
+  z-index: 2;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(6, 39, 228, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.launchpad-card.live .logo-container:hover .logo-glow {
+  opacity: 1;
+}
+
+.launchpad-card.live .logo-container:hover .launchpad-logo {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(27, 12, 240, 0.3);
+}
+
+.launchpad-card.ended .logo-container:hover .launchpad-logo {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(23, 179, 56, 0.3);
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-badge.live {
+  background: rgba(7, 245, 62, 0.2);
+  color: #000000;
+  border: 1px solid rgba(22, 25, 221, 0.4);
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(7, 245, 62, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(7, 245, 62, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(7, 245, 62, 0);
+  }
+}
+
+.status-badge.ended {
+  background: rgba(66, 65, 65, 0.2);
+  color: #ece6e6;
+  border: 1px solid rgba(29, 25, 243, 0.4);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-badge.live .status-dot {
+  background: #0cf504;
+  box-shadow: 0 0 10px rgba(31, 91, 182, 0.5);
+  animation: pulse 2s infinite;
+}
+
+.status-badge.ended .status-dot {
+  background: #4fec07;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(5, 35, 117, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(5, 43, 14, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 161, 53, 0);
+  }
+}
+
+/* Card Content */
+.launchpad-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #080000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.symbol {
+  color: #070000;
+  font-size: 0.9rem;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+}
+
+.details-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #000c01;
+  font-size: 0.9rem;
+}
+
+.details-list li strong {
+  color: #000000;
+}
+
+.value {
+  color: #000000;
+  text-align: right;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value.soft {
+  color: #2756da;
+}
+
+.value.highlight {
+  color: #06b10f;
+}
+
+.type {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.type.public {
+  background: rgba(13, 110, 253, 0.2);
+  color: #0d6efd;
+}
+
+.type.standard {
+  background: rgba(111, 66, 193, 0.2);
+  color: #13062b;
+}
+
+.type.fair {
+  background: rgba(160, 159, 197, 0.2);
+  color: #1747a0;
+}
+
+/* View Button Container */
+.view-button-container {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+/* View Button */
+.view-button {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+}
+
+.view-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.view-button:hover:before {
+  left: 100%;
+}
+
+.launchpad-card.live .view-button {
+  background: linear-gradient(45deg, #0e93e0, #07c01f);
+}
+
+.launchpad-card.ended .view-button {
+  background: linear-gradient(45deg, #a7abb3, #93a0c4);
+}
+
+/* More Launchpads Link */
+.more-launchpads {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #207dc9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.more-link:hover {
+  color: #2855a7;
+  transform: translateX(5px);
+}
+
+/* Feature Sections */
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.feature-card.reverse .feature-content {
+  flex-direction: row-reverse;
+}
+
+.feature-content {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.feature-text {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.feature-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #080000;
+  margin-bottom: 20px;
+}
+
+.feature-description {
+  color: #070000;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.feature-button {
+  background: linear-gradient(45deg, #2054e2, #0c2d9b);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  color: rgb(7, 0, 0);
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Partners Section */
+.partners-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.partners-description {
+  text-align: center;
+  color: #070000;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.partner-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.partner-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
+}
+
+.partner-image-container {
+  width: 100px;
+  height: 60px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.partner-item:hover .partner-image {
+  filter: grayscale(0%) brightness(1);
+}
+
+.partner-caption h3 {
+  color: #0c0000;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .feature-content {
+    padding: 30px;
+  }
+  
+  .feature-text {
+    padding: 0 20px;
+  }
+  
+  .feature-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .feature-content {
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .feature-card.reverse .feature-content {
+    flex-direction: column;
+  }
+  
+  .feature-text {
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+  }
+  
+  .feature-description {
+    text-align: center;
+  }
+  
+  .feature-button {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .feature-title {
+    font-size: 1.4rem;
+  }
+  
+  .feature-description {
+    font-size: 1rem;
+  }
+  
+  .launchpad-title {
+    font-size: 1.1rem;
+  }
+  
+  .details-list li {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage-container {
+    padding: 15px;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .feature-content {
+    padding: 20px;
+  }
+  
+  .feature-title {
+    font-size: 1.3rem;
+  }
+  
+  .feature-description {
+    font-size: 0.95rem;
+  }
+  
+  .feature-image {
+    max-height: 250px;
+  }
+  
+  .logo-container {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  
+  .view-button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .launchpads-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  .feature-title {
+    font-size: 1.1rem;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+  }
+  
+  .feature-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .details-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .value {
+    text-align: left;
+    max-width: 100%;
+  }
+}
